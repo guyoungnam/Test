@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() {
+
+	  $("#x").on("click",function(){
+		  $("#result").text($("input").val().length);
+	  });
+	  
+	  $("input").on("keyup" , function(e){
+		 $("#x").trigger("click"); 
+	  });
+
+  });
+</script>
+</head>
+<body>
+값:<input type="text"><button id="x">글자수 얻기</button><br>
+글자수:<span id="result"></span>
+
+</body>
+</html>

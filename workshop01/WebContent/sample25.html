@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript" src="../jquery-3.2.1.js"></script>
+<script type="text/javascript">
+   
+    $(document).ready(function(){
+        $("#xxx").on("click",function(event){
+        	//ajax코드
+        	$.ajax({
+        		type:"get",
+        		url:"broadcast.jsp",
+        		dataType:"xml",
+        		success:function(responseData, status, xhr){
+
+					 // 아직 안배운 .each(fn)
+					 var mesg = "<table border='1'>";
+					 	 mesg += "<tr>";
+					 	 mesg += "<th>term</th>";
+					 	 mesg += "<th>part</th>";
+					 	 mesg += "<th>mes</th>";
+					 	 mesg += "</tr>";
+					 $(responseData).find("entry").each(function(){
+						 console.log($(this));
+						 var entry = $(this).attr("term");
+						 var part = $(this).attr("part");
+						 var mes = $(this).children("mes");
+						 mesg += "<tr>";
+					 	 mesg += "<td>"+entry+"</td>";
+					 	 mesg += "<td>"+part+"</td>";
+					 	 mesg += "<td>"+mes.text()+"</td>";
+					 	 mesg += "</tr>";
+					 });
+					 
+					    mesg +="</table>";
+					$("#result").html(mesg);    
+        		},
+        		error:function(xhr,status,e){
+        			console.log(status, e);
+        		}
+        		
+        	});
+        	
+        	
+        });
+    });
+    
+
+</script>
+</head>
+<body>
+
+<button id="xxx">XML</button>
+<div id="result"></div>
+
+</body>
+</html>
+
+
+
+
+
+
+
+

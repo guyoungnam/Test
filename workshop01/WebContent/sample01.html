@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script type="text/javascript">
+	$(document).ready(function() {
+
+		$("#up").on("click", function() {
+			var count = $("#quantity").val();
+			$("#quantity").val(parseInt(count) + 1);
+		});
+		$("#down").on("click", function() {
+			var count = $("#quantity").val();
+			if (count != 1) {
+				$("#quantity").val(parseInt(count) - 1);
+			}
+		});
+	});
+</script>
+</head>
+<body>
+	갯수
+	<input type="text" name="quantity" id="quantity" value="1">
+	<button id="up">+</button>
+	<button id="down">-</button>
+</body>
+</html>

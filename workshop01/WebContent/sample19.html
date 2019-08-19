@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script type="text/javascript">
+
+   
+   var arr = [];  
+   function save(){
+	   var v1 = $("#v1");
+	   arr.push(v1.val());
+	   list();
+   }
+   
+   function list(){
+	   var result = $("#result");
+	   var mesg = '';
+	   $.each(arr,function(idx,ele){
+		   mesg = mesg + arr[idx]+"<br>";
+	   });
+	   result.html(mesg);
+   }
+   
+   $(document).ready(function() {
+		$("#v1").on("keyup", function(e) {
+			if(e.keyCode == 13){
+				   save();
+			   }
+		});
+  });
+</script>
+</head>
+<body>
+ 값:<input type="search" name="v1" id="v1">
+  <div id="result">
+ 
+ </div>
+
+</body>
+</html>

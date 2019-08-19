@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script type="text/javascript">
+
+    $(document).ready(function() {
+        
+  	   $("#passwd1").on("keyup", function() {
+  		  
+  		 var mesg = "비밀번호 일치";
+     	var pw = $("#passwd").val();
+     	var pw1 = $(this).val();
+     	if(pw1 != pw){
+     		mesg = "비밀번호 불일치";
+     	}
+     	$("#result").text(mesg);	
+  	   });
+  	   
+  	});
+</script>
+</head>
+<body>
+ 비밀번호 확인 구현<br>
+ 비밀번호<input type="text" name="passwd" id="passwd"><br>
+ 비밀번호 재확인<input type="text" name="passwd1" id="passwd1">
+ <span id='result'></span>
+</body>
+</html>
